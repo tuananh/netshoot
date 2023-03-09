@@ -21,7 +21,7 @@ contents:
     - iperf@local
     - iperf3@local
     - openssh
-    - socat
+    - socat@local
 
 accounts:
   groups:
