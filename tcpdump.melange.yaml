@@ -16,6 +16,7 @@ environment:
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
     repositories:
       - https://packages.wolfi.dev/os
+      - '@local ./packages'
     packages:
       - busybox
       - ca-certificates-bundle
@@ -23,7 +24,7 @@ environment:
       - cmake
       - samurai
       - openssl-dev
-      # - libpcap-dev
+      - libpcap-dev@local
 
 pipeline:
   - uses: fetch

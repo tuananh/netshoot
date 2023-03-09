@@ -23,6 +23,7 @@ contents:
     - socat@local
     - speedtest-cli@local
     - strace
+    - tcpdump@local
     - websocat@local
     - wolfi-baselayout
     # - apache2-utils
