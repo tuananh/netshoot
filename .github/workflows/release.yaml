@@ -39,7 +39,7 @@ jobs:
         run: sudo apt-get install -y qemu-user
 
       - uses: sigstore/cosign-installer@main
-      
+      - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
         with:
           signing-key-path: ${{ github.workspace }}/melange.rsa
