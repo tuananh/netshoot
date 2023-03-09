@@ -42,9 +42,28 @@ jobs:
       
       - uses: chainguard-dev/actions/melange-build@main
         with:
-          config: hello.melange.yaml
+          config: iperf.melange.yaml
           sign-with-temporary-key: true
-          archs: x86_64,aarch64
+          # archs: x86_64,aarch64
+          archs: x86_64
+
+      - uses: chainguard-dev/actions/melange-build@main
+        with:
+          config: iperf3.melange.yaml
+          sign-with-temporary-key: true
+          archs: x86_64
+
+      - uses: chainguard-dev/actions/melange-build@main
+        with:
+          config: socat.melange.yaml
+          sign-with-temporary-key: true
+          archs: x86_64
+
+      - uses: chainguard-dev/actions/melange-build@main
+        with:
+          config: websocat.melange.yaml
+          sign-with-temporary-key: true
+          archs: x86_64
 
       - uses: chainguard-images/actions/apko-publish@e61cb0631c83e84cadc21337be090ad06bf05da2
         id: apko

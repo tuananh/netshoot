@@ -3,11 +3,25 @@ contents:
     - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
   repositories:
     - https://packages.wolfi.dev/os
-    - '@local /github/workspace/packages'
+    - '@local ./packages'
   packages:
     - wolfi-baselayout
     - busybox
-    - hello@local
+    - calicoctl
+    - curl
+    - bash
+    # - apache2-utils
+    - jq
+    # - httpie
+    - netcat-openbsd
+    - python-3.11
+    - py3.11-pip
+    - git
+    - websocat@local
+    - iperf@local
+    - iperf3@local
+    - openssh
+    - socat
 
 accounts:
   groups:
@@ -20,8 +34,8 @@ accounts:
   run-as: 65532
 
 entrypoint:
-  command: /usr/local/bin/hello
+  command: /bin/bash
 
 archs:
 - amd64
-- arm64
+# - arm64

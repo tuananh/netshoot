@@ -1,3 +1,5 @@
 packages/*
 melange.rsa
 melange.rsa.pub
+sbom*.cdx
+sbom*.spdx.json
