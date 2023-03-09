@@ -59,6 +59,7 @@ jobs:
         uses: chainguard-dev/actions/melange-build@main
         with:
           config: socat.melange.yaml
+          workdir: socat
           sign-with-temporary-key: true
           archs: x86_64
 
