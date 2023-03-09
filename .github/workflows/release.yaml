@@ -40,32 +40,37 @@ jobs:
 
       - uses: sigstore/cosign-installer@main
       
-      - uses: chainguard-dev/actions/melange-build@main
+      - name: Build iperf pkg
+        uses: chainguard-dev/actions/melange-build@main
         with:
           config: iperf.melange.yaml
           sign-with-temporary-key: true
           # archs: x86_64,aarch64
           archs: x86_64
 
-      - uses: chainguard-dev/actions/melange-build@main
+      - name: Build iperf3 pkg
+        uses: chainguard-dev/actions/melange-build@main
         with:
           config: iperf3.melange.yaml
           sign-with-temporary-key: true
           archs: x86_64
 
-      - uses: chainguard-dev/actions/melange-build@main
+      - name: Build socat pkg
+        uses: chainguard-dev/actions/melange-build@main
         with:
           config: socat.melange.yaml
           sign-with-temporary-key: true
           archs: x86_64
 
-      - uses: chainguard-dev/actions/melange-build@main
+      - name: Build websocat pkg
+        uses: chainguard-dev/actions/melange-build@main
         with:
           config: websocat.melange.yaml
           sign-with-temporary-key: true
           archs: x86_64
 
-      - uses: chainguard-images/actions/apko-publish@e61cb0631c83e84cadc21337be090ad06bf05da2
+      - name: Build netshoot image with apko
+        uses: chainguard-images/actions/apko-publish@e61cb0631c83e84cadc21337be090ad06bf05da2
         id: apko
         with:
           config: latest.apko.yaml
