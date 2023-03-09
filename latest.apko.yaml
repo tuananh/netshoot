@@ -5,23 +5,27 @@ contents:
     - https://packages.wolfi.dev/os
     - '@local ./packages'
   packages:
-    - wolfi-baselayout
+    - bash
+    - bind-tools
     - busybox
     - calicoctl
     - curl
-    - bash
-    # - apache2-utils
-    - jq
-    # - httpie
-    - netcat-openbsd
-    - python-3.11
-    - py3.11-pip
     - git
-    - websocat@local
+    - grpcurl@local
     - iperf@local
     - iperf3@local
+    - jq
+    - netcat-openbsd
     - openssh
+    - openssl
+    - py3.11-pip
+    - python-3.11
     - socat@local
+    - strace
+    - websocat@local
+    - wolfi-baselayout
+    # - apache2-utils
+    # - httpie
 
 accounts:
   groups:
