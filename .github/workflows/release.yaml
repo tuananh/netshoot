@@ -101,6 +101,7 @@ jobs:
         with:
           config: tcpdump.melange.yaml
           sign-with-key: ${{ github.workspace }}/melange.rsa
+          keyring-append: ${{ github.workspace }}/melange.rsa.pub
           archs: x86_64
 
       - name: Build netshoot image with apko
