@@ -21,6 +21,7 @@ contents:
     - py3.11-pip
     - python-3.11
     - socat@local
+    - speedtest-cli@local
     - strace
     - websocat@local
     - wolfi-baselayout

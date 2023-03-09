@@ -45,7 +45,7 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
 
       - name: Build iperf pkg
-        uses: uses: chainguard-dev/actions/melange-build-pkg@main
+        uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: iperf.melange.yaml
           sign-with-key: ${{ github.workspace }}/melange.rsa
@@ -53,21 +53,21 @@ jobs:
           archs: x86_64
 
       - name: Build iperf3 pkg
-        uses: uses: chainguard-dev/actions/melange-build-pkg@main
+        uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: iperf3.melange.yaml
           sign-with-key: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
       - name: Build grpcurl pkg
-        uses: uses: chainguard-dev/actions/melange-build-pkg@main
+        uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: grpcurl.melange.yaml
           sign-with-key: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
       - name: Build socat pkg
-        uses: uses: chainguard-dev/actions/melange-build-pkg@main
+        uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: socat.melange.yaml
           source-dir: socat
@@ -75,9 +75,16 @@ jobs:
           archs: x86_64
 
       - name: Build websocat pkg
-        uses: uses: chainguard-dev/actions/melange-build-pkg@main
+        uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: websocat.melange.yaml
+          sign-with-key: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
+      - name: Build speedtest-cli pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: speedtest-cli.melange.yaml
           sign-with-key: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 

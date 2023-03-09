@@ -1,0 +1,40 @@
+package:
+  name: speedtest-cli
+  version: 2.1.3
+  epoch: 0
+  description: Command line interface for testing internet bandwidth using speedtest.net
+  target-architecture:
+    - all
+  copyright:
+    - paths:
+      - "*"
+      attestation: TODO
+      license: Apache-2.0
+  dependencies:
+    runtime:
+      - python3
+
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+    packages:
+      - wolfi-base
+      - busybox
+      - ca-certificates-bundle
+      - build-base
+      - python3
+      - py3-setuptools
+
+pipeline:
+  - uses: fetch
+    with:
+      uri: https://github.com/sivel/speedtest-cli/archive/v${{package.version}}.tar.gz
+      expected-sha256: 45e3ca21c3ce3c339646100de18db8a26a27d240c29f1c9e07b6c13995a969be
+  - runs: |
+      python3 setup.py build
+  - runs: |
+      python3 setup.py install --skip-build --prefix=/usr --root="${{targets.destdir}}"
+  - uses: strip
