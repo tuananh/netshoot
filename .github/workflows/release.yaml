@@ -42,10 +42,19 @@ jobs:
       - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
 
+      - name: Build ldns pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: ldns.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build dhcping pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: dhcping.melange.yaml
+          source-dir: dhcping
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
