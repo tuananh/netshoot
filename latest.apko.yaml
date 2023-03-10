@@ -22,6 +22,9 @@ contents:
     - ipvsadm@local
     - jq
     - netcat-openbsd
+    - nmap-nping@local
+    - nmap-scripts@local
+    - nmap@local
     - openssh
     - openssl
     - py3.11-pip
@@ -35,10 +38,6 @@ contents:
     - websocat@local
     - wolfi-baselayout
     # - ngrep@local
-    # - nmap
-    # - nmap-nping
-    # - nmap-scripts
-    # - nmap@local
     # - apache2-utils
     # - httpie
 
