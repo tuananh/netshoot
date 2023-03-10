@@ -1,15 +1,15 @@
 package:
-  name: libmnl
-  version: 1.0.5
+  name: fping
+  version: 5.1
   epoch: 0
-  description: Library for minimalistic netlink
+  description: A utility to ping multiple hosts at once
   target-architecture:
     - all
   copyright:
     - paths:
         - "*"
       attestation: TODO
-      license: LGPL-2.1-or-later
+      license: GPL-2.0-only
 environment:
   contents:
     keyring:
@@ -23,32 +23,23 @@ environment:
       - automake
       - autoconf
       - linux-headers
-      # - bsd-compat-headers
+      - libmnl-dev@local
 
 pipeline:
   - uses: fetch
     with:
-      expected-sha256: 274b9b919ef3152bfb3da3a13c950dd60d6e2bcd54230ffeca298d03b40d0525
-      uri: https://www.netfilter.org/projects/libmnl/files/libmnl-${{package.version}}.tar.bz2
-  - uses: patch
-    with:
-      patches: musl-fix-headers.patch
+      expected-sha256: 1ee5268c063d76646af2b4426052e7d81a42b657e6a77d8e7d3d2e60fd7409fe
+      uri: https://fping.org/dist/fping-${{package.version}}.tar.gz
   - uses: autoconf/configure
     with:
       opts: |
         --build=$CBUILD \
         --host=$CHOST \
         --prefix=/usr \
-        --enable-static
+        --mandir=/usr/share/man \
+        --enable-ipv6
   - uses: autoconf/make
   - uses: autoconf/make-install
+  - runs: |
+      setcap cap_net_raw=+ep "${{targets.destdir}}"/usr/sbin/fping
   - uses: strip
-
-subpackages:
-  - name: "libmnl-dev"
-    description: "headers for libmnl"
-    pipeline:
-      - uses: split/dev
-    dependencies:
-      runtime:
-        - libmnl

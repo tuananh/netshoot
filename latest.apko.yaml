@@ -12,6 +12,7 @@ contents:
     - curl
     - dhcping@local
     - drill@local
+    - fping@local
     - git
     - grpcurl@local
     - iperf@local
