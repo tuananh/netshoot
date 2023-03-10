@@ -2,8 +2,65 @@
 
 # netshoot
 
-Using melange, apko to build a Wolfi-based netshoot image, a port of [nicolaka/netshoot](https://github.com/nicolaka/netshoot).
+Using [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko) to build a Wolfi-based netshoot image, a port of [nicolaka/netshoot](https://github.com/nicolaka/netshoot).
 
+List of tools available in this image
+
+```
+- bash
+- bind-tools
+- busybox
+- calicoctl
+- curl
+- dhcping
+- drill
+- ethtool
+- file
+- fping
+- git
+- grpcurl
+- iperf
+- iperf3
+- ipvsadm
+- jq
+- netcat-openbsd
+- nmap-nping
+- nmap-scripts
+- nmap
+- openssh
+- openssl
+- py3.11-pip
+- python-3.11
+- socat
+- speedtest-cli
+- strace
+- tcpdump
+- tcptraceroute
+- vim
+- websocat
+```
+
+## Usage
+
+For example usage, see the [original project's README here](https://github.com/nicolaka/netshoot#readme).
+
+## Signing
+
+This image is signed with [cosign](https://github.com/sigstore/cosign). To verify, download cosign and run
+
+```sh
+cosign verify ghcr.io/tuananh/netshoot:latest --certificate-oidc-issuer https://token.actions.githubusercontent.com --certificate-identity https://github.com/tuananh/netshoot/.github/workflows/release.yaml@refs/heads/main
+```
+
+Output
+
+```
+Verification for ghcr.io/tuananh/netshoot:latest --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The code-signing certificate was verified using trusted certificate authority certificates
+```
 ## License
 
 MIT License
