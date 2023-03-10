@@ -31,8 +31,8 @@ pipeline:
     with:
       expected-sha256: 1ee5268c063d76646af2b4426052e7d81a42b657e6a77d8e7d3d2e60fd7409fe
       uri: https://fping.org/dist/fping-${{package.version}}.tar.gz
-  runs: |
-    make BUILD_CC=gcc CC="${CC:-gcc}" lib=lib prefix=/usr GOLANG=no DESTDIR="$pkgdir"
+  - runs: |
+      make BUILD_CC=gcc CC="${CC:-gcc}" lib=lib prefix=/usr GOLANG=no DESTDIR="$pkgdir"
   - uses: strip
 subpackages:
   - name: "libcap-utils"
