@@ -37,6 +37,7 @@ contents:
     - vim
     - websocat@local
     - wolfi-baselayout
+    - bird
     # - ngrep@local
     # - apache2-utils
     # - httpie
