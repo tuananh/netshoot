@@ -1,0 +1,49 @@
+package:
+  name: ngrep
+  version: 1.47
+  epoch: 0
+  description: A grep-like utility that allows you to search for network packets on an interface
+  target-architecture:
+    - all
+  copyright:
+    - paths:
+        - "*"
+      attestation: TODO
+      license: GPL-2.0-only
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+      - '@local ./packages'
+    packages:
+      - busybox
+      - ca-certificates-bundle
+      - build-base
+      - automake
+      - autoconf
+      - libpcap-dev@local
+      - pcre-dev
+
+pipeline:
+  - uses: fetch
+    with:
+      expected-sha256: dc4dbe20991cc36bac5e97e99475e2a1522fd88c59ee2e08f813432c04c5fff3
+      uri: https://github.com/jpr5/ngrep/archive/V1_47.tar.gz
+  - runs: |
+      export EXTRA_INCLUDES=$(pcre-config --cflags)
+      export EXTRA_LIBS=$(pcre-config --libs)
+      ./configure \
+        --build=$CBUILD \
+        --host=$CHOST \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --enable-pcre \
+        --enable-ipv6 \
+        --with-pcap-includes=/usr/include/pcap \
+        --disable-pcap-restart
+  - uses: autoconf/make
+  - uses: autoconf/make-install
+  - uses: strip
+#TODO: missing -dbg & -doc subpkg. Will need this when PR to wolfi/os

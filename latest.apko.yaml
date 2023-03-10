@@ -12,6 +12,8 @@ contents:
     - curl
     - dhcping@local
     - drill@local
+    - ethtool@local
+    - file
     - fping@local
     - git
     - grpcurl@local
@@ -19,6 +21,7 @@ contents:
     - iperf3@local
     - jq
     - netcat-openbsd
+    - ngrep@local
     - openssh
     - openssl
     - py3.11-pip

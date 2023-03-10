@@ -85,6 +85,14 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
+      - name: Build ngrep pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: ngrep.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build dhcping pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
