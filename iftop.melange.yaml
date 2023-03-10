@@ -31,9 +31,6 @@ pipeline:
     with:
       expected-sha256: d032547c708307159ff5fd0df23ebd3cfa7799c31536fa0aea1820318a8e0eac
       uri: https://www.ex-parrot.com/~pdw/iftop/download/iftop-${{package.version}}.tar.gz
-  - uses: patch
-    with:
-      patches: bird-make-test-bsprintf.patch
   - uses: autoconf/configure
   - uses: autoconf/make
   - uses: autoconf/make-install
