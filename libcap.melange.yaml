@@ -32,7 +32,7 @@ pipeline:
       expected-sha256: ce9b22fdc271beb6dae7543da5f74cf24cb82e6848cfd088a5a069dec5ea5198
       uri: https://kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-${{package.version}}.tar.xz
   - runs: |
-      make BUILD_CC=gcc CC="${CC:-gcc}" lib=lib prefix=/usr GOLANG=no DESTDIR="$pkgdir"
+      make lib=lib prefix=/usr GOLANG=no DESTDIR="${{targets.destdir}}" install
   - uses: strip
 subpackages:
   - name: "libcap-utils"
