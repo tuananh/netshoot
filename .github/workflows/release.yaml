@@ -42,6 +42,14 @@ jobs:
       - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
 
+      - name: Build dhcping pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: dhcping.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build iperf pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:

@@ -10,6 +10,7 @@ contents:
     - busybox
     - calicoctl
     - curl
+    - dhcping@local
     - git
     - grpcurl@local
     - iperf@local
