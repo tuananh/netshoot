@@ -21,8 +21,6 @@ contents:
     - iperf3@local
     - jq
     - netcat-openbsd
-    # - ngrep@local
-    - nmap@local
     - openssh
     - openssl
     - py3.11-pip
@@ -31,8 +29,13 @@ contents:
     - speedtest-cli@local
     - strace
     - tcpdump@local
+    - tcptraceroute@local
     - websocat@local
     - wolfi-baselayout
+    # - ngrep@local
+    # - nmap-nping
+    # - nmap-scripts
+    # - nmap@local
     # - apache2-utils
     # - httpie
 

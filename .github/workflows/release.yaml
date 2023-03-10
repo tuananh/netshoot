@@ -42,6 +42,23 @@ jobs:
       - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
       
+      - name: Build libnet pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: libnet.melange.yaml
+          source-dir: libnet
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
+      - name: Build tcptraceroute pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: tcptraceroute.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build libpcap pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
@@ -51,14 +68,14 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
       
-      - name: Build nmap pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: nmap.melange.yaml
-          source-dir: nmap
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build nmap pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: nmap.melange.yaml
+      #     source-dir: nmap
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
           
       - name: Build libcap pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
