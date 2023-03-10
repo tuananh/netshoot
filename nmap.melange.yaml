@@ -54,7 +54,7 @@ pipeline:
         --with-libpcre=yes \
         --with-libz=yes \
         --with-libssh2=yes \
-        --with-liblua=/usr/lib/lua5.3
+      # --with-liblua=/usr/lua5.3
   - uses: autoconf/make
   - uses: autoconf/make-install
   - uses: strip
