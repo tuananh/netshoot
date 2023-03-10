@@ -21,7 +21,8 @@ contents:
     - iperf3@local
     - jq
     - netcat-openbsd
-    - ngrep@local
+    # - ngrep@local
+    - nmap@local
     - openssh
     - openssl
     - py3.11-pip
