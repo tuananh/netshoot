@@ -30,9 +30,11 @@ contents:
     - strace
     - tcpdump@local
     - tcptraceroute@local
+    - vim
     - websocat@local
     - wolfi-baselayout
     # - ngrep@local
+    # - nmap
     # - nmap-nping
     # - nmap-scripts
     # - nmap@local
