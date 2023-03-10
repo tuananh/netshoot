@@ -24,6 +24,7 @@ environment:
       - samurai
       - openssl-dev
       - zlib-dev
+      - xz
 
 pipeline:
   - uses: fetch
