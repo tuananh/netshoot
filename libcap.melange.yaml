@@ -25,6 +25,7 @@ environment:
       - linux-headers
       - perl
       - bash
+      - tree
 
 pipeline:
   - uses: fetch
@@ -33,6 +34,8 @@ pipeline:
       uri: https://kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-${{package.version}}.tar.xz
   - runs: |
       make lib=lib prefix=/usr GOLANG=no DESTDIR="${{targets.destdir}}" install
+      ls
+      tree
   - uses: strip
 subpackages:
   - name: "libcap-utils"
