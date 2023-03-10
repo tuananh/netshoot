@@ -48,7 +48,7 @@ subpackages:
     description: "headers for libnfnetlink"
     pipeline:
       - uses: split/dev
-  - name: "libnfnetlink-static"
-    description: "libnfnetlink static"
-    pipeline:
-      - uses: split/static
+  # - name: "libnfnetlink-static"
+  #   description: "libnfnetlink static"
+  #   pipeline:
+  #     - uses: split/static
