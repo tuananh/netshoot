@@ -22,7 +22,6 @@ environment:
       - build-base
       - automake
       - autoconf
-      - tree
 pipeline:
   - uses: fetch
     with:
@@ -50,12 +49,10 @@ subpackages:
     dependencies:
       runtime:
         - libnet
-  - name: libnet-static
-    description: libnet static
-    pipeline:
-      - uses: split/static
-      - runs: |
-          tree
+  # - name: libnet-static
+  #   description: libnet static
+  #   pipeline:
+  #     - uses: split/static
   - name: libnet-doc
     description: libnet manpages
     pipeline:
