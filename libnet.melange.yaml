@@ -22,6 +22,7 @@ environment:
       - build-base
       - automake
       - autoconf
+      - tree
 pipeline:
   - uses: fetch
     with:
@@ -40,6 +41,7 @@ pipeline:
   - uses: autoconf/make
   - uses: autoconf/make-install
   - uses: strip
+  - runs: tree
 subpackages:
   - name: "libnet-dev"
     description: "headers for libnet"
@@ -52,6 +54,8 @@ subpackages:
     description: libnet static
     pipeline:
       - uses: split/static
+      - runs: |
+          tree
   - name: libnet-doc
     description: libnet manpages
     pipeline:
