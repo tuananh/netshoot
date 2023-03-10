@@ -1,6 +1,6 @@
 package:
   name: libcap
-  version: 2.6.7
+  version: 2.67
   epoch: 0
   description: POSIX 1003.1e capabilities
   target-architecture:
@@ -29,8 +29,8 @@ environment:
 pipeline:
   - uses: fetch
     with:
-      expected-sha256: 1ee5268c063d76646af2b4426052e7d81a42b657e6a77d8e7d3d2e60fd7409fe
-      uri: https://fping.org/dist/fping-${{package.version}}.tar.gz
+      expected-sha256: ce9b22fdc271beb6dae7543da5f74cf24cb82e6848cfd088a5a069dec5ea5198
+      uri: https://kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-${{package.version}}.tar.xz
   - runs: |
       make BUILD_CC=gcc CC="${CC:-gcc}" lib=lib prefix=/usr GOLANG=no DESTDIR="$pkgdir"
   - uses: strip
