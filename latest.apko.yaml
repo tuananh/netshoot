@@ -7,6 +7,7 @@ contents:
   packages:
     - bash
     - bind-tools
+    - bird
     - busybox
     - calicoctl
     - curl
@@ -17,6 +18,7 @@ contents:
     - fping@local
     - git
     - grpcurl@local
+    - iftop
     - iperf@local
     - iperf3@local
     - ipvsadm@local
@@ -37,7 +39,6 @@ contents:
     - vim
     - websocat@local
     - wolfi-baselayout
-    - bird
     # - ngrep@local
     # - apache2-utils
     # - httpie
