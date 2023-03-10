@@ -80,6 +80,7 @@ jobs:
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: libssh.melange.yaml
+          empty-workspace: true
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
