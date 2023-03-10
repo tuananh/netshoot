@@ -58,4 +58,29 @@ pipeline:
   - uses: autoconf/make
   - uses: autoconf/make-install
   - uses: strip
-#TODO: missing -dbg & -doc subpkg. Will need this when PR to wolfi/os
+subpackages:
+  - name: "nmap-scripts"
+    description: "nmap (scripts)"
+    pipeline:
+      - runs: |
+          mkdir -p ${{targets.subpkgdir}}/usr/share/nmap/
+          mv ${{targets.destdir}}/usr/share/nmap/scripts ${{targets.subpkgdir}}/usr/share/nmap/
+  - name: "nmap-nselibs"
+    description: "nmap (nselibs)"
+    pipeline:
+      - runs: |
+          mkdir -p ${{targets.subpkgdir}}/usr/share/nmap/nselib
+          mv ${{targets.destdir}}/usr/share/nmap/nse_main.lua ${{targets.subpkgdir}}/usr/share/nmap/
+          mv ${{targets.destdir}}/usr/share/nmap/nselib ${{targets.subpkgdir}}/usr/share/nmap/
+  - name: "nmap-ncat"
+    description: "nmap (ncat tool)"
+    pipeline:
+      - runs: |
+          mkdir -p ${{targets.subpkgdir}}/usr/bin
+          mv ${{targets.destdir}}/usr/bin/ncat ${{targets.subpkgdir}}/usr/bin/
+  - name: "nmap-nping"
+    description: "nmap (nping tool)"
+    pipeline:
+      - runs: |
+          mkdir -p ${{targets.subpkgdir}}/usr/bin
+          mv ${{targets.destdir}}/usr/bin/nping ${{targets.subpkgdir}}/usr/bin/
