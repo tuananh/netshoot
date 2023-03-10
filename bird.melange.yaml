@@ -16,6 +16,7 @@ environment:
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
     repositories:
       - https://packages.wolfi.dev/os
+      - '@local ./packages'
     packages:
       - autoconf
       - automake
@@ -24,7 +25,7 @@ environment:
       - busybox
       - ca-certificates-bundle
       - flex
-      - libssh2-dev
+      - libssh-dev@local
       - linux-headers
       - ncurses-dev
       - readline-dev

@@ -76,6 +76,14 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
+      - name: Build libssh pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: libssh.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build bird pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
