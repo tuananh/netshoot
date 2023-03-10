@@ -34,7 +34,7 @@ environment:
 pipeline:
   - uses: fetch
     with:
-      expected-sha256: dc4dbe20991cc36bac5e97e99475e2a1522fd88c59ee2e08f813432c04c5fff3
+      expected-sha512: 4ec9295e25bd7a215e718c3dbbf09bfe6339b60850f4a8d09b5ad0cbf41a0da8ece0168efc5ca91ba1ecbd83b1d31735d77dacd5f1ec1a9fd212454dd1f0f0fd
       uri: https://nmap.org/dist/nmap-${{package.version}}.tar.bz2
   - uses: patch
     with:
