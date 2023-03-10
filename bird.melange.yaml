@@ -24,7 +24,7 @@ environment:
       - busybox
       - ca-certificates-bundle
       - flex
-      - libssh-dev
+      - libssh2-dev
       - linux-headers
       - ncurses-dev
       - readline-dev
