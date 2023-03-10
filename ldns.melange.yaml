@@ -44,7 +44,7 @@ pipeline:
         --infodir=/usr/share/info \
         --localstatedir=/var \
         --with-drill \
-        --with-examples \
+# --with-examples \
         --disable-dane-verify
   - uses: autoconf/make
   - uses: autoconf/make-install
