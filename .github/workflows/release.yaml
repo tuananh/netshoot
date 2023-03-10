@@ -42,6 +42,32 @@ jobs:
       - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
       
+      - name: Build libmnl pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: libmnl.melange.yaml
+          source-dir: libmnl
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+          
+      - name: Build libnfnetlink pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: libnfnetlink.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
+      - name: Build libnetfilter_conntrack pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: libnetfilter_conntrack.melange.yaml
+          source-dir: libnetfilter_conntrack
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build libnl3 pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
@@ -107,15 +133,6 @@ jobs:
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: fping.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
-      - name: Build libmnl pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: libmnl.melange.yaml
-          source-dir: libmnl
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64

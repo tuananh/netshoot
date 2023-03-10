@@ -1,0 +1,50 @@
+package:
+  name: libnetfilter_conntrack
+  version: 1.0.9
+  epoch: 0
+  description: programming interface (API) to the in-kernel connection tracking state table
+  target-architecture:
+    - all
+  copyright:
+    - paths:
+        - "*"
+      attestation: TODO
+      license: GPL-2.0-or-later
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+      - '@local ./packages'
+    packages:
+      - autoconf
+      - automake
+      - build-base
+      - busybox
+      - ca-certificates-bundle
+      - libmnl-dev@local
+      - linux-headers
+      - libnfnetlink-dev@local
+
+pipeline:
+  - uses: fetch
+    with:
+      expected-sha256: 67bd9df49fe34e8b82144f6dfb93b320f384a8ea59727e92ff8d18b5f4b579a8
+      uri: https://www.netfilter.org/projects/libnetfilter_conntrack/files/libnetfilter_conntrack-${{package.version}}.tar.bz2
+  - uses: patch
+    with:
+      patches: fix_build_with_kernel_5.15_and_musl.patch
+  - uses: autoconf/configure
+    with:
+      opts: |
+        --build=$CBUILD \
+        --host=$CHOST \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --mandir=/usr/share/man \
+        --infodir=/usr/share/info \
+        --enable-static
+  - uses: autoconf/make
+  - uses: autoconf/make-install
+  - uses: strip

@@ -1,0 +1,54 @@
+package:
+  name: libnfnetlink
+  version: 1.0.2
+  epoch: 0
+  description: low-level library for netfilter related kernel/userspace communication
+  target-architecture:
+    - all
+  copyright:
+    - paths:
+        - "*"
+      attestation: TODO
+      license: GPL-2.0-only
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+      - '@local ./packages'
+    packages:
+      - autoconf
+      - automake
+      - build-base
+      - busybox
+      - ca-certificates-bundle
+      - linux-headers
+
+pipeline:
+  - uses: fetch
+    with:
+      expected-sha256: b064c7c3d426efb4786e60a8e6859b82ee2f2c5e49ffeea640cfe4fe33cbc376
+      uri: https://www.netfilter.org/projects/libnfnetlink/files/libnfnetlink-${{package.version}}.tar.bz2
+  - uses: autoconf/configure
+    with:
+      opts: |
+        --build=$CBUILD \
+        --host=$CHOST \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --mandir=/usr/share/man \
+        --infodir=/usr/share/info \
+        --enable-static
+  - uses: autoconf/make
+  - uses: autoconf/make-install
+  - uses: strip
+subpackages:
+  - name: "libnfnetlink-dev"
+    description: "headers for libnfnetlink"
+    pipeline:
+      - uses: split/dev
+  - name: "libnfnetlink-static"
+    description: "libnfnetlink static"
+    pipeline:
+      - uses: split/static
