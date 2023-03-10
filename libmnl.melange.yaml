@@ -23,7 +23,7 @@ environment:
       - automake
       - autoconf
       - linux-headers
-      - bsd-compat-headers
+      # - bsd-compat-headers
 
 pipeline:
   - uses: fetch
