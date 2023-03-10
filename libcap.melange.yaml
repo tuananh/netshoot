@@ -1,15 +1,15 @@
 package:
-  name: fping
-  version: 5.1
+  name: libcap
+  version: 2.6.7
   epoch: 0
-  description: A utility to ping multiple hosts at once
+  description: POSIX 1003.1e capabilities
   target-architecture:
     - all
   copyright:
     - paths:
         - "*"
       attestation: TODO
-      license: GPL-2.0-only
+      license: BSD-3-Clause OR GPL-2.0-only
 environment:
   contents:
     keyring:
@@ -22,23 +22,22 @@ environment:
       - build-base
       - automake
       - autoconf
-      - libcap-utils@local
+      - linux-headers
+      - perl
+      - bash
 
 pipeline:
   - uses: fetch
     with:
       expected-sha256: 1ee5268c063d76646af2b4426052e7d81a42b657e6a77d8e7d3d2e60fd7409fe
       uri: https://fping.org/dist/fping-${{package.version}}.tar.gz
-  - uses: autoconf/configure
-    with:
-      opts: |
-        --build=$CBUILD \
-        --host=$CHOST \
-        --prefix=/usr \
-        --mandir=/usr/share/man \
-        --enable-ipv6
-  - uses: autoconf/make
-  - uses: autoconf/make-install
-  - runs: |
-      setcap cap_net_raw=+ep "${{targets.destdir}}"/usr/sbin/fping
+  runs: |
+    make BUILD_CC=gcc CC="${CC:-gcc}" lib=lib prefix=/usr GOLANG=no DESTDIR="$pkgdir"
   - uses: strip
+subpackages:
+  - name: "libcap-utils"
+    description: "libcap (utils)"
+    pipeline:
+      - runs: |
+          mkdir -p ${{targets.subpkgdir}}/usr
+          mv ${{targets.destdir}}/usr/bin ${{targets.subpkgdir}}/usr
