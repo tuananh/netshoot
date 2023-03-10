@@ -53,7 +53,7 @@ subpackages:
   #   description: libnet static
   #   pipeline:
   #     - uses: split/static
-  - name: libnet-doc
-    description: libnet manpages
-    pipeline:
-      - uses: split/manpages
+  # - name: libnet-doc
+  #   description: libnet manpages
+  #   pipeline:
+  #     - uses: split/manpages
