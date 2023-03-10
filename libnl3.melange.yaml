@@ -34,7 +34,7 @@ pipeline:
       uri: https://github.com/thom311/libnl/releases/download/libnl3_7_0/libnl-${{package.version}}.tar.gz
   - uses: patch
     with:
-      patches: libnl-musl.patch
+      patches: libnl3-musl.patch
   - uses: autoconf/configure
     with:
       opts: |
