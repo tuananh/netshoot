@@ -19,6 +19,7 @@ contents:
     - grpcurl@local
     - iperf@local
     - iperf3@local
+    - ipvsadm@local
     - jq
     - netcat-openbsd
     - openssh

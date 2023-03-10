@@ -42,6 +42,23 @@ jobs:
       - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
       
+      - name: Build libnl3 pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: libnl3.melange.yaml
+          source-dir: libnl3
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
+      - name: Build ipvsadm pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: ipvsadm.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build libnet pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
