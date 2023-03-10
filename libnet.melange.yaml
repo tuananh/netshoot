@@ -40,3 +40,19 @@ pipeline:
   - uses: autoconf/make
   - uses: autoconf/make-install
   - uses: strip
+subpackages:
+  - name: "libnet-dev"
+    description: "headers for libnet"
+    pipeline:
+      - uses: split/dev
+    dependencies:
+      runtime:
+        - libnet
+  - name: libnet-static
+    description: libnet static
+    pipeline:
+      - uses: split/static
+  - name: libnet-doc
+    description: libnet manpages
+    pipeline:
+      - uses: split/manpages

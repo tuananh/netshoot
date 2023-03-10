@@ -51,14 +51,6 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
-      - name: Build tcptraceroute pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: tcptraceroute.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
       - name: Build libpcap pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
@@ -67,7 +59,15 @@ jobs:
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
-      
+
+      - name: Build tcptraceroute pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: tcptraceroute.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       # - name: Build nmap pkg
       #   uses: chainguard-dev/actions/melange-build-pkg@main
       #   with:
