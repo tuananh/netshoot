@@ -22,6 +22,7 @@ environment:
       - build-base
       - automake
       - go
+      - git
 pipeline:
   - uses: fetch
     with:

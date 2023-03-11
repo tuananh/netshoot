@@ -10,6 +10,7 @@ contents:
     - bird@local
     - busybox
     - calicoctl
+    - ctop@local
     - curl
     - dhcping@local
     - drill@local
@@ -34,6 +35,7 @@ contents:
     - socat@local
     - speedtest-cli@local
     - strace
+    - swaks@local
     - tcpdump@local
     - tcptraceroute@local
     - vim
