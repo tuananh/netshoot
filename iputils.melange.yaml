@@ -1,0 +1,85 @@
+package:
+  name: iputils
+  version: 20221126
+  epoch: 0
+  description: IP Configuration Utilities
+  target-architecture:
+    - all
+  copyright:
+    - paths:
+        - "*"
+      attestation: TODO
+      license: BSD-3-Clause AND GPL-2.0-or-later
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+      - '@local ./packages'
+    packages:
+      - autoconf
+      - automake
+      - build-base
+      - busybox
+      - ca-certificates-bundle
+      - libcap-dev@local
+      - meson
+
+pipeline:
+  - uses: fetch
+    with:
+      expected-sha512: 7fdfd76e6f2977039bc0930a1a5451f17319bf17beefc429751d99ffe143a83344d5b4cdbf008627bd70caafeadaf906a8b7c00393fa819e50d6c02b512c367f
+      uri: https://github.com/iputils/iputils/archive/${{package.version}}.tar.gz
+  - runs: |
+      meson \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --mandir=/usr/share/man \
+        --localstatedir=/var \
+        --buildtype=plain \
+        -Db_lto=true \
+        -DNO_SETCAP_OR_SUID=true \
+        -DBUILD_MANS=false \
+        -DUSE_IDN=false \
+        -DUSE_GETTEXT=false \
+        . output
+      
+      meson compile -C output
+  - runs: |
+      install -Dm4755 output/ping/ping "${{targets.destdir}}"/bin/ping
+
+      for name in arping clockdiff tracepath; do
+        install -Dm755 output/$name "${{targets.destdir}}"/usr/sbin/$name
+      done
+      
+      ln -s tracepath "${{targets.destdir}}"/usr/sbin/tracepath6
+      ln -s ping "${{targets.destdir}}"/bin/ping6
+  - uses: strip
+
+subpackages:
+  - name: "iputils-arping"
+    description: "IP Configuration Utilities (arping utility)"
+    pipeline:
+      - runs: |
+          mkdir -p "${{targets.subpkgdir}}"/usr/sbin
+          cp "${{targets.destdir}}"/usr/sbin/arping "${{targets.subpkgdir}}"/usr/sbin/
+  - name: "iputils-clockdiff"
+    description: "IP Configuration Utilities (clockdiff utility)"
+    pipeline:
+      - runs: |
+          mkdir -p "${{targets.subpkgdir}}"/usr/sbin
+          cp "${{targets.destdir}}"/usr/sbin/clockdiff "${{targets.subpkgdir}}"/usr/sbin/
+  - name: "iputils-ping"
+    description: "IP Configuration Utilities (ping utility)"
+    pipeline:
+      - runs: |
+          mkdir -p "${{targets.subpkgdir}}"/bin
+          cp "${{targets.destdir}}"/bin/ping* "${{targets.subpkgdir}}"/bin/
+  - name: "iputils-tracepath"
+    description: "IP Configuration Utilities (tracepath utility)"
+    pipeline:
+      - runs: |
+          mkdir -p "${{targets.subpkgdir}}"/usr/sbin
+          cp "${{targets.destdir}}"/usr/sbin/tracepath* "${{targets.subpkgdir}}"/usr/sbin/
+    

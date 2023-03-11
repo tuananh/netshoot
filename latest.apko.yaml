@@ -22,6 +22,7 @@ contents:
     - iftop@local
     - iperf@local
     - iperf3@local
+    - iputils@local
     - ipvsadm@local
     - jq
     - netcat-openbsd
