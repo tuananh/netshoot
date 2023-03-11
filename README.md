@@ -9,8 +9,10 @@ List of tools available in this image
 ```
 - bash
 - bind-tools
+- bird
 - busybox
 - calicoctl
+- ctop
 - curl
 - dhcping
 - drill
@@ -19,6 +21,7 @@ List of tools available in this image
 - fping
 - git
 - grpcurl
+- iftop
 - iperf
 - iperf3
 - ipvsadm
@@ -34,6 +37,7 @@ List of tools available in this image
 - socat
 - speedtest-cli
 - strace
+- swaks
 - tcpdump
 - tcptraceroute
 - vim
