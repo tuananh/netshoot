@@ -7,7 +7,7 @@ contents:
   packages:
     - bash
     - bind-tools
-    - bird
+    - bird@local
     - busybox
     - calicoctl
     - curl
@@ -18,7 +18,7 @@ contents:
     - fping@local
     - git
     - grpcurl@local
-    - iftop
+    - iftop@local
     - iperf@local
     - iperf3@local
     - ipvsadm@local
