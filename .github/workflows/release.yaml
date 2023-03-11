@@ -42,6 +42,22 @@ jobs:
       - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
       
+      - name: Build swaks pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: swaks.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
+      - name: Build ctop pkg
+        uses: chainguard-dev/actions/melange-build-pkg@main
+        with:
+          config: ctop.melange.yaml
+          sign-with-key: true
+          signing-key-path: ${{ github.workspace }}/melange.rsa
+          archs: x86_64
+
       - name: Build libpcap pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:

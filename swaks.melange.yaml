@@ -1,0 +1,31 @@
+package:
+  name: swaks
+  version: 20201014.0
+  epoch: 0
+  description: Swiss Army Knife for SMTP
+  target-architecture:
+    - all
+  copyright:
+    - paths:
+        - "*"
+      attestation: TODO
+      license: GPL-2.0-or-later
+environment:
+  contents:
+    keyring:
+      - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+    repositories:
+      - https://packages.wolfi.dev/os
+    packages:
+      - busybox
+      - ca-certificates-bundle
+
+pipeline:
+  - uses: fetch
+    with:
+      expected-sha512: 8a4e8dc810a9c5943afdbc4db7130e110c42e211d6927ce1cdbab6f81fa49c31490e6c3668ec3cea79580c07b281ce30901b3b4a71325951167158cc9d70d9cc
+      uri: https://www.jetmore.org/john/code/swaks/files/swaks-${{package.version}}.tar.gz
+  - runs: |
+      mkdir -p "${{targets.destdir}}"/usr/bin
+      install -Dm755 swaks "${{targets.destdir}}"/usr/bin/swaks
+  - uses: strip
