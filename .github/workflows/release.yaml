@@ -41,15 +41,7 @@ jobs:
       - uses: sigstore/cosign-installer@main
       - uses: chainguard-dev/actions/setup-melange@main
       - uses: chainguard-dev/actions/melange-keygen@main
-      
-      - name: Build libcap pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: libcap.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-          
+                
       - name: Build iputils pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
