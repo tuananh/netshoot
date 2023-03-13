@@ -16,7 +16,6 @@ environment:
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
     repositories:
       - https://packages.wolfi.dev/os
-      - '@local ./packages'
     packages:
       - busybox
       - ca-certificates-bundle
@@ -24,7 +23,7 @@ environment:
       - automake
       - autoconf
       - openssl-dev
-      - libpcap-dev@local
+      - libpcap-dev
       - perl
       - libtool
 

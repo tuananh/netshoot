@@ -16,15 +16,13 @@ environment:
       - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
     repositories:
       - https://packages.wolfi.dev/os
-      - '@local ./packages'
     packages:
       - busybox
       - ca-certificates-bundle
       - build-base
       - automake
       - autoconf
-      - libpcap-dev@local
-      # - libnet-dev@local
+      - libpcap-dev
       - libnet-dev
 pipeline:
   - uses: fetch

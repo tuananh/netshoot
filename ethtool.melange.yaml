@@ -24,7 +24,7 @@ environment:
       - automake
       - autoconf
       - linux-headers
-      - libmnl-dev@local
+      - libmnl-dev
 
 pipeline:
   - uses: fetch

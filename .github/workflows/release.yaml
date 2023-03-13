@@ -66,22 +66,22 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
-      - name: Build ctop pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: ctop.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build ctop pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: ctop.melange.yaml
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
 
-      - name: Build libpcap pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: libpcap.melange.yaml
-          source-dir: libpcap
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build libpcap pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: libpcap.melange.yaml
+      #     source-dir: libpcap
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
 
       - name: Build iftop pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
@@ -91,14 +91,14 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
-      - name: Build libmnl pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: libmnl.melange.yaml
-          source-dir: libmnl
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build libmnl pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: libmnl.melange.yaml
+      #     source-dir: libmnl
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
           
       - name: Build libnfnetlink pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
@@ -108,14 +108,14 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
-      - name: Build libssh pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: libssh.melange.yaml
-          empty-workspace: true
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build libssh pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: libssh.melange.yaml
+      #     empty-workspace: true
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
 
       - name: Build bird pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
@@ -211,39 +211,39 @@ jobs:
       #     signing-key-path: ${{ github.workspace }}/melange.rsa
       #     archs: x86_64
 
-      - name: Build dhcping pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: dhcping.melange.yaml
-          source-dir: dhcping
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build dhcping pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: dhcping.melange.yaml
+      #     source-dir: dhcping
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
 
-      - name: Build iperf pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: iperf.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          # archs: x86_64,aarch64
-          archs: x86_64
+      # - name: Build iperf pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: iperf.melange.yaml
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     # archs: x86_64,aarch64
+      #     archs: x86_64
 
-      - name: Build iperf3 pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: iperf3.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build iperf3 pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: iperf3.melange.yaml
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
 
-      - name: Build grpcurl pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: grpcurl.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build grpcurl pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: grpcurl.melange.yaml
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
 
       - name: Build socat pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
