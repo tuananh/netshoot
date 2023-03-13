@@ -24,7 +24,8 @@ environment:
       - automake
       - autoconf
       - libpcap-dev@local
-      - libnet-dev@local
+      # - libnet-dev@local
+      - libnet-dev
 pipeline:
   - uses: fetch
     with:

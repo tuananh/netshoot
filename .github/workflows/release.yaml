@@ -152,14 +152,14 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
-      - name: Build libnet pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: libnet.melange.yaml
-          source-dir: libnet
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
+      # - name: Build libnet pkg
+      #   uses: chainguard-dev/actions/melange-build-pkg@main
+      #   with:
+      #     config: libnet.melange.yaml
+      #     source-dir: libnet
+      #     sign-with-key: true
+      #     signing-key-path: ${{ github.workspace }}/melange.rsa
+      #     archs: x86_64
 
       - name: Build tcptraceroute pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
