@@ -4,6 +4,11 @@
 
 Using [melange](https://github.com/chainguard-dev/melange) and [apko](https://github.com/chainguard-dev/apko) to build a Wolfi-based netshoot image, a port of [nicolaka/netshoot](https://github.com/nicolaka/netshoot).
 
+Right now, we built lots of the packages here but eventually, I want to get them all in Wolfi.
+
+- 1st PR: [ctop, dhcping, grpcurl, iperf, iperf3, libnet, libmnl, libpcap & libssh](https://github.com/wolfi-dev/os/pull/742)
+- 2nd PR: [libnl3, fping, ethtool, iftop and tcpdump](https://github.com/wolfi-dev/os/pull/749)
+
 List of tools available in this image
 
 ```
