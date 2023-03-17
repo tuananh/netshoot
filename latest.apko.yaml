@@ -33,7 +33,7 @@ contents:
     - openssl
     - py3.11-pip
     - python-3.11
-    - socat@local
+    - socat
     - speedtest-cli@local
     - strace
     - swaks@local

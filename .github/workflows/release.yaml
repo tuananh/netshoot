@@ -159,15 +159,6 @@ jobs:
       #     signing-key-path: ${{ github.workspace }}/melange.rsa
       #     archs: x86_64
 
-      - name: Build socat pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: socat.melange.yaml
-          source-dir: socat
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
       - name: Build websocat pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:

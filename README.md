@@ -8,6 +8,7 @@ Right now, we built lots of the packages here but eventually, I want to get them
 
 - 1st PR: [ctop, dhcping, grpcurl, iperf, iperf3, libnet, libmnl, libpcap & libssh](https://github.com/wolfi-dev/os/pull/742)
 - 2nd PR: [libnl3, fping, ethtool, iftop and tcpdump](https://github.com/wolfi-dev/os/pull/749)
+- 3rd PR: [socat](https://github.com/wolfi-dev/os/pull/720)
 
 List of tools available in this image
 
