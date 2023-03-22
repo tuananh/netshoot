@@ -14,12 +14,12 @@ contents:
     - curl
     - dhcping@local
     - drill@local
-    - ethtool@local
+    - ethtool
     - file
-    - fping@local
+    - fping
     - git
-    - grpcurl@local
-    - iftop@local
+    - grpcurl
+    - iftop
     - iperf@local
     - iperf3@local
     - iputils@local
@@ -37,7 +37,7 @@ contents:
     - speedtest-cli@local
     - strace
     - swaks@local
-    - tcpdump@local
+    - tcpdump
     - tcptraceroute@local
     - vim
     - websocat@local

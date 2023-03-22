@@ -57,14 +57,6 @@ jobs:
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
-
-      - name: Build iftop pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: iftop.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
           
       - name: Build libnfnetlink pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
@@ -92,15 +84,6 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
-      - name: Build libnl3 pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: libnl3.melange.yaml
-          source-dir: libnl3
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
       - name: Build ipvsadm pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
@@ -122,23 +105,6 @@ jobs:
         with:
           config: nmap.melange.yaml
           source-dir: nmap
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
-      # need libcap-utils
-      - name: Build fping pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: fping.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
-      - name: Build ethtool pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: ethtool.melange.yaml
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
@@ -173,15 +139,6 @@ jobs:
           config: speedtest-cli.melange.yaml
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
-      - name: Build tcpdump pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: tcpdump.melange.yaml
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          keyring-append: ${{ github.workspace }}/melange.rsa.pub
           archs: x86_64
 
       - name: Build netshoot image with apko
