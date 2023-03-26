@@ -7,7 +7,7 @@ contents:
   packages:
     - bash
     - bind-tools
-    - bird@local
+    - bird
     - busybox
     - calicoctl
     - ctop@local
@@ -23,8 +23,9 @@ contents:
     - iperf@local
     - iperf3@local
     - iputils@local
-    - ipvsadm@local
+    - ipvsadm
     - jq
+    - ldns
     - netcat-openbsd
     - nmap-nping@local
     - nmap-scripts@local
