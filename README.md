@@ -9,6 +9,7 @@ Right now, we built lots of the packages here but eventually, I want to get them
 - 1st PR: [ctop, dhcping, grpcurl, iperf, iperf3, libnet, libmnl, libpcap & libssh](https://github.com/wolfi-dev/os/pull/742)
 - 2nd PR: [libnl3, fping, ethtool, iftop and tcpdump](https://github.com/wolfi-dev/os/pull/749)
 - 3rd PR: [socat](https://github.com/wolfi-dev/os/pull/720)
+- 4nd PR: [ipvsadm,ldns, and bird](https://github.com/wolfi-dev/os/pull/838)
 
 List of tools available in this image
 
@@ -32,6 +33,7 @@ List of tools available in this image
 - iperf3
 - ipvsadm
 - jq
+- ldns
 - netcat-openbsd
 - nmap-nping
 - nmap-scripts
