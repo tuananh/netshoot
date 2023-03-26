@@ -66,28 +66,11 @@ jobs:
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
 
-      - name: Build bird pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: bird.melange.yaml
-          source-dir: bird
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
       - name: Build libnetfilter_conntrack pkg
         uses: chainguard-dev/actions/melange-build-pkg@main
         with:
           config: libnetfilter_conntrack.melange.yaml
           source-dir: libnetfilter_conntrack
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
-      - name: Build ipvsadm pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: ipvsadm.melange.yaml
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
@@ -105,14 +88,6 @@ jobs:
         with:
           config: nmap.melange.yaml
           source-dir: nmap
-          sign-with-key: true
-          signing-key-path: ${{ github.workspace }}/melange.rsa
-          archs: x86_64
-
-      - name: Build ldns pkg
-        uses: chainguard-dev/actions/melange-build-pkg@main
-        with:
-          config: ldns.melange.yaml
           sign-with-key: true
           signing-key-path: ${{ github.workspace }}/melange.rsa
           archs: x86_64
